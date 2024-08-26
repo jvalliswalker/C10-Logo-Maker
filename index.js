@@ -52,12 +52,12 @@ function writeSVGFile(answers) {
   ];
 
   fs.writeFile('logo.svg', fileData.join('\n'), (error) => {
-    error ? console.log(error) : console.log('write successful');
+    error ? console.log(error) : console.log('Generated logo.svg');
   })
 }
 
 inquirer
 .prompt(questions)
 .then((answers) => {
-  writeSVGFile(answers)
+  writeSVGFile(answers);
 })
