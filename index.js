@@ -29,3 +29,35 @@ const questions = [
     message: 'What color should the shape be? (choose a name or hexadecimal value)'
   }
 ];
+
+const shapeMap = {
+  'Circle': Circle,
+  'Square': Square,
+  'Triangle': Triangle
+};
+
+function writeSVGFile(answers) {
+
+  const shapeClass = shapeMap[answers.shape];
+  const shape = new shapeClass(
+    answers.shapeColor,
+    answers.text,
+    answers.textColor
+  );
+
+  const fileData = [
+    `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">`,
+    shape.render(),
+    `</svg>`
+  ];
+
+  fs.writeFile('logo.svg', fileData.join('\n'), (error) => {
+    error ? console.log(error) : console.log('write successful');
+  })
+}
+
+inquirer
+.prompt(questions)
+.then((answers) => {
+  writeSVGFile(answers)
+})
