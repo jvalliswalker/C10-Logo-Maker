@@ -5,10 +5,14 @@ const fs = require('fs');
 /* <svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
 </svg> */
 
+// Regex support
+// https://stackoverflow.com/a/15288645/8032508
+
 const questions = [
   {
     name: 'text',
-    message: 'What should the logo text be?'
+    message: 'What should the logo text be? (max three characters)',
+    validate: validateLogoText
   },
   {
     name: 'textColor',
@@ -35,6 +39,11 @@ const shapeMap = {
   'Square': Square,
   'Triangle': Triangle
 };
+
+function validateLogoText(logoText){
+  const reg = /^[A-Za-z0-9]{1,3}$/;
+  return reg.test(logoText);
+}
 
 function writeSVGFile(answers) {
 
