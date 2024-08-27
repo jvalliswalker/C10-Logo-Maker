@@ -60,7 +60,6 @@ function validateColor(color){
     const regexTwoCharacterSplitter = /.{1,2}/g;
     const hexadecimalPairs = color.replace('#','').match(regexTwoCharacterSplitter);
     const pairValidation = [];
-    console.log(hexadecimalPairs);
 
     for(const pair of hexadecimalPairs){
       pairValidation.push(regexHexadecimalPair.test(pair));
