@@ -13,7 +13,7 @@ To use this application, first ensure that nodejs is installed on your computer.
 
 ## Video & Screenshot
 
-
+https://github.com/user-attachments/assets/0d4de28e-6ed7-457c-b73a-74dab75c5a65
 
 ![Example Screenshot](assets/images/Screenshot_1.png)
 
